@@ -13,7 +13,7 @@ export default {
 
 <style scoped>
 div {
-    background-image: linear-gradient(to right, #B22222, #DC143C);
+    background-image: linear-gradient(to right, #B22222, #FA5858);
     color: white;
     padding: 30px 20px 10px 20px;
 }

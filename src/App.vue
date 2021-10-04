@@ -1,24 +1,28 @@
 <template>
   <div>
-    <Marca/>
-    <Header/>
+    <Marca />
+    <Header />
+
+    <div id="container">
+      <Cadastro />
+    </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Marca from './components/Marca.vue'
+import Cadastro from "./components/Cadastro.vue";
+import Header from "./components/Header.vue";
+import Marca from "./components/Marca.vue";
 
 export default {
-  name: 'App',
-  components: { Marca, Header }
-}
-
+  name: "App",
+  components: { Marca, Header, Cadastro },
+};
 </script>
 
 <style>
 :root {
-  --cor-destaque: #B22222;
+  --cor-destaque: #b22222;
 }
 
 @font-face {
@@ -39,5 +43,10 @@ export default {
 body {
   margin: 0;
   background-color: #dddddd;
+}
+
+#container {
+  display: flex;
+  padding: 20px;
 }
 </style>
