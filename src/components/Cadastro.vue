@@ -2,29 +2,52 @@
   <div id="painelCadastro">
     <div id="formularioCadastro">
       <form>
-        <div id="tiposCadastro">
-          <input type="radio" name="tipo" id="entrada" />
-          <label for="entrada">Entrada</label>
-          <input type="radio" name="tipo" id="saida" />
-          <label for="saida">Saída</label>
-        </div>
-
-        <label for="valor">Valor</label>
-        <input type="number" name="valor" id="valor" />
-        <label for="descricao">Descricao</label>
-        <input type="text" name="descricao" id="descricao" />
-
-        <label for="data">Data</label>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" />
+        <label for="planeta">Planeta</label>
+        <input type="text" name="planeta" id="planeta" />
+        <label for="data">Data de Nascimento</label>
         <input type="date" name="data" id="data" />
+        <label for="descricao">Qual sua motivação para entrar na aliança?</label>
+        <textarea rows="4" cols="25"></textarea>
+
+        
         <button>Cadastrar</button>
       </form>
+    </div>
+
+    <div id="areaRegistros">
+      <RegistroCadastro :registro="{
+        nome: 'Anderson',
+        planeta: 'Terra',
+        data: '1991-08-08',
+      }"
+      />
+
+        <RegistroCadastro :registro="{
+        nome: 'Maria',
+        planeta: 'Terra',
+        data: '1962-11-20',
+      }"
+      />
+
+        <RegistroCadastro :registro="{
+        nome: 'Carlos',
+        planeta: 'Terra',
+        data: '2000-06-05',
+      }"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import RegistroCadastro from './RegistroCadastro.vue'
 export default {
   name: "Cadastro",
+  components: {
+    RegistroCadastro,
+  }
 };
 </script>
 
@@ -41,41 +64,25 @@ export default {
   font-family: "padrao";
 }
 
-#valor,
-#descricao,
+#nome,
+#planeta,
 #data,
-button {
+button, textarea {
   display: block;
   margin-bottom: 10px;
 }
 
-#valor,
-#descricao,
+#nome,
+#planeta,
 #data {
   height: 20px;
   font-family: "padrao";
   font-size: 100%;
 }
 
-#tiposCadastro {
-  margin-bottom: 10px;
-  font-family: "negrito";
-}
-
-#tiposCadastro label {
-  margin-right: 20px;
-}
-
-#tiposCadastro label:first-of-type {
-  color: #22a7f0;
-}
-
-#tiposCadastro label:last-of-type {
-  color: red;
-}
-
-#descricao {
+textarea {
   width: 70%;
+  
 }
 
 button {
@@ -87,5 +94,9 @@ button {
   color: white;
   font-family: "negrito";
   font-size: 100%;
+}
+
+#areaRegistros {
+  margin-top: 30px;
 }
 </style>
