@@ -1,27 +1,7 @@
+
 const moduloLancamentos = {
     state: {
-        cadastro: [
-            {
-                id: Math.random().toString(36).substr(2,5),
-                nome: "Hans",
-                planeta: "Saturno",
-                data: "1942-07-13"
-            },
-
-            {
-                id: Math.random().toString(36).substr(2,5),
-                nome: "Dani",
-                planeta: "Saturno",
-                data: "1942-07-13"
-            },
-
-            {
-                id: Math.random().toString(36).substr(2,5),
-                nome: "Math",
-                planeta: "Saturno",
-                data: "1942-07-13"
-            }
-        ],
+        cadastro: [],
     },
     getters: {
         todosCadastros: state => state.cadastro,        
@@ -29,12 +9,19 @@ const moduloLancamentos = {
     actions: {
         salvarCadastro: ({commit}, cadastro) => {
             commit("adicionarCadastro", cadastro);
+        },
+        excluirCadastro: ({commit}, id) => {
+            commit('removerCadastro', id);
         }
     },
     mutations: {
         adicionarCadastro:
-        (state, cadastro) => state.cadastro.unshift(cadastro)
-    }
+        (state, cadastro) => state.cadastro.unshift(cadastro),
+
+        removerCadastro:
+        (state, id) => state.cadastro = state.cadastro.filter(cadastro => cadastro.id !== id)
+    },
+    
 };
 
 export default moduloLancamentos;

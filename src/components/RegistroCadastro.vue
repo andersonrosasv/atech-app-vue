@@ -2,7 +2,7 @@
   <div class="registroCadastro">
       <div class="botoes">
           <img src="../img/iconerebelde.png" alt="Ícone da Resistência" class="imagemRegistro">
-          <button class="botaoRemover">
+          <button @click="excluirCadastro(registro.id)" class="botaoRemover">
               <img src="../img/lixeira.png" alt="Remover lançamento" class="imagemLixeira">
           </button>
       </div>
@@ -16,12 +16,14 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
 export default {
     name: "RegistroCadastro",
+    methods: mapActions(["excluirCadastro"]),
     props: {
         registro: Object, String,
-    }
-}
+    },
+};
 </script>
 
 <style scoped>
